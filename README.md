@@ -1,2 +1,4 @@
-## opencv java·Î ÇØº¸±â
-https://www.youtube.com/watch?v=NUQc7-dYIxA º¸¸é¼­ ÇÏ´Â Áß
+## opencv java í•´ë³´ê¸°
+https://www.youtube.com/watch?v=NUQc7-dYIxA ë³´ë©´ì„œ í•˜ë‹¤ê°€
+
+java opencv rtsp ê²€ìƒ‰ ê²°ê³¼ ìœ„ì£¼ë¡œ ë³´ëŠ” ì¤‘..ã…  
