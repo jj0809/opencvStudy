@@ -1,42 +1,60 @@
 package test;
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.videoio.VideoCapture;
+import javax.swing.JButton;
 
 public class Camera {
-	
+
 	static {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-	}
 
+		System.loadLibrary("opencv_java300");
+	}
+/*
 	public static void main(String[] args) {
+	        // TODO Auto-generated method stub
 
-	    Camera cam = new Camera();
-	    String addressString = "rtsp://admin:intuintu1!@192.168.2.59:554/profile2/media.smp";
-	    Mat mat = new Mat();
-	    VideoCapture capturedVideo = new VideoCapture();
-
-	    boolean isOpened = capturedVideo.open(addressString); 
-	    System.out.println("rtsp 실행.....");
-	    cam.openRTSP(isOpened, capturedVideo, mat);
-
-	}
-
-	public void openRTSP(boolean isOpened, VideoCapture capturedVideo, Mat cameraMat) {
-	    if (isOpened) {
-	        boolean tempBool = capturedVideo.read(cameraMat);
-	        System.out.println("VideoCapture returned mat? "+tempBool);
-
-	        if (!cameraMat.empty()) {
-	            System.out.println("Print image size: "+cameraMat.size());
-	            //processing image captured in cameraMat object
-
-	        } else {
-	            System.out.println("Mat is empty.");
+	        VideoCapture cap = new VideoCapture("rtsp://admin:password@ddns.somehost.com/h264/ch1/main/av_stream");
+	                try {
+	            System.out.println("Delay waiting..");
+	            Thread.sleep(10000); // wait while stream open from dvr
+	            System.out.println("Delay end..");
+	        } catch(InterruptedException ex) {
+	            Thread.currentThread().interrupt();
 	        }
-	    } else {
-	        System.out.println("Camera connection problem. Check addressString");
-	    }
-	}
+
+	        if (!cap.isOpened()) {
+	            System.exit(-1);
+	        }
+	         System.out.println("Prepare to Get frame..");
+	        // Matrix for storing image
+	                Mat image = new Mat();
+	                // Frame for displaying image
+	                private JButton btnCapture;
+	                cameraScreen = new JLabel(); cameraScreen.setBounds(0, 0, 640, 480);
+	                add(cameraScreen);
+	                btnCapture = new JButton("capture"); btnCapture.setBounds(300, 480, 80, 40);
+	                add(btnCapture);
+	                setSize(new Dimension(640, 560)); setLocationRelativeTo(null);
+	                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setVisible(true);
+	                // Main loop
+	                while (true) {
+	                    // Read current camera frame into matrix
+
+	                    cap.read(image);  
+	                     System.out.println("Geting frame..");
+	                        try {
+	                            System.out.println("Frame delay waiting..");
+	                            Thread.sleep(500);
+	                            System.out.println("Delay end..");
+	                        } catch(InterruptedException ex) {
+	                            Thread.currentThread().interrupt();
+	                        }
+	                    // Render frame if the camera is still acquiring images
+	                    if (image != null) {
+	                        frame.render(image);
+	                    } else {
+	                        System.out.println("No captured frame -- camera disconnected");
+	                        break;
+	                    }
+	                }
+ */
 	}
