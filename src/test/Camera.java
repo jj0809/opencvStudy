@@ -2,17 +2,20 @@ package test;
 
 import javax.swing.JButton;
 
+import org.opencv.core.Mat;
+import org.opencv.videoio.VideoCapture;
+
 public class Camera {
 
 	static {
 
 		System.loadLibrary("opencv_java300");
 	}
-/*
+
 	public static void main(String[] args) {
 	        // TODO Auto-generated method stub
 
-	        VideoCapture cap = new VideoCapture("rtsp://admin:password@ddns.somehost.com/h264/ch1/main/av_stream");
+	        VideoCapture cap = new VideoCapture("rtsp url");
 	                try {
 	            System.out.println("Delay waiting..");
 	            Thread.sleep(10000); // wait while stream open from dvr
@@ -56,5 +59,5 @@ public class Camera {
 	                        break;
 	                    }
 	                }
- */
+ 
 	}
