@@ -1,6 +1,5 @@
 package test;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,8 +20,6 @@ import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
-
-
 public class Camera2 extends JFrame {
 
 	private JLabel label;
@@ -30,6 +27,7 @@ public class Camera2 extends JFrame {
 	private VideoCapture capture;
 	private Mat image;
 	private boolean clicked = false, closed = false;
+	String RTSP_URL = "rtsp: ";
 
 	public Camera2() {
 
@@ -71,7 +69,7 @@ public class Camera2 extends JFrame {
 		});
 
 		setFocusable(false);
-		setSize(new Dimension(640, 560));
+		setSize(640, 560);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -81,7 +79,9 @@ public class Camera2 extends JFrame {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+
 				Camera2 camera = new Camera2();
+				
 				// start camera in thread
 				new Thread(new Runnable() {
 					public void run() {
@@ -94,7 +94,8 @@ public class Camera2 extends JFrame {
 	}
 
 	public void startCamera() {
-		capture = new VideoCapture(0);
+
+		capture = new VideoCapture(RTSP_URL);
 		image = new Mat();
 		byte[] imageData;
 
@@ -111,7 +112,8 @@ public class Camera2 extends JFrame {
 			// add to JLabel
 			icon = new ImageIcon(imageData);
 			label.setIcon(icon);
-			System.out.println(image.cols());
+			// System.out.println(image.cols());
+
 			// capture and save to file
 			if (clicked) {
 				System.out.println("clicked");
