@@ -21,24 +21,27 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
 public class Camera3 extends JFrame {
+	static {
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+	}
 
 	private JLabel label;
 	private ImageIcon icon;
 	private VideoCapture capture;
 	private Mat image;
 	private boolean clicked = false, closed = false;
-	String RTSP_URL = "rtsp: ";
+	String RTSP_URL = "rtsp://admin:intuintu1!@192.168.0.32:554/profile2/media.smp";
 
 	public Camera3() {
 
 		setLayout(null);
 
 		label = new JLabel();
-		label.setBounds(0, 0, 1300, 900);
+		label.setBounds(0, 0, 640, 480);
 		add(label);
 
 		JButton btn = new JButton("capture");
-		btn.setBounds(700, 900, 80, 40);
+		btn.setBounds(300, 480, 80, 40);
 		add(btn);
 
 		btn.addActionListener(new ActionListener() {
@@ -69,18 +72,18 @@ public class Camera3 extends JFrame {
 		});
 
 		setFocusable(false);
-		setSize(1500, 1000);
+		setSize(640, 560);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 
 	public static void main(String[] args) {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
-				Camera3 camera = new Camera3();
+				Camera2 camera = new Camera2();
 
 				// start camera in thread
 				new Thread(new Runnable() {
@@ -116,9 +119,6 @@ public class Camera3 extends JFrame {
 
 			// capture and save to file
 			if (clicked) {
-				
-				
-				
 				System.out.println("clicked");
 				// prompt for enter image name
 				String name = JOptionPane.showInputDialog("Enter image name");

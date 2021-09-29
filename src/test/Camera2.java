@@ -21,13 +21,17 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
 public class Camera2 extends JFrame {
+	
+	static {
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+	}
 
 	private JLabel label;
 	private ImageIcon icon;
 	private VideoCapture capture;
 	private Mat image;
 	private boolean clicked = false, closed = false;
-	String RTSP_URL = "rtsp: ";
+	String RTSP_URL = "rtsp://admin:intuintu1!@192.168.0.32:554/profile2/media.smp";
 
 	public Camera2() {
 
@@ -76,7 +80,7 @@ public class Camera2 extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
