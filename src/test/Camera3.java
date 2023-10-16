@@ -30,7 +30,7 @@ public class Camera3 extends JFrame {
 	private VideoCapture capture;
 	private Mat image;
 	private boolean clicked = false, closed = false;
-	String RTSP_URL = "rtsp://admin:intuintu1!@192.168.0.32:554/profile2/media.smp";
+	String RTSP_URL = "rtsp://admin:test@192.168.0.1:554/profile2/media.smp";
 
 	public Camera3() {
 
